@@ -1,6 +1,46 @@
 import mongoose from 'mongoose';
 const { Schema, model } = mongoose;
 
+const PhotoShema = new Schema ({
+  url: {
+    type: String,
+    required: false
+  }
+});
+
+const WidthSchema = new Schema ({
+  characteristicsId: {
+    type: Number,
+    required: true
+  },
+  value: {
+    type: Number,
+    required: true
+  }
+});
+
+const ComfortSchema = new Schema ({
+  characteristicsId: {
+    type: Number,
+    required: true
+  },
+  value: {
+    type: Number,
+    required: true
+  }
+});
+
+const SizeSchema = new Schema ({
+  characteristicsId: {
+    type: Number,
+    required: true
+  },
+  value: {
+    type: Number,
+    required: true
+  }
+});
+
 const ReviewSchema = new Schema({
   product_id: {
     type: Number,
@@ -41,23 +81,11 @@ const ReviewSchema = new Schema({
     type: Number,
     required: true
   },
-  photos: [{
-    type: String,
-    required: false
-  }],
+  photos: [PhotoSchema],
   characteristics: {
-    Size: {
-      type: Number,
-      required: true
-    },
-    Width: {
-      type: Number,
-      required: true
-    },
-    Comfort: {
-      type: Number,
-      required: true
-    }
+    Size: {SizeSchema},
+    Width: {WidthSchema},
+    Comfort: {ComfortSchema}
   }
 });
 
