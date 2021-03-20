@@ -8,29 +8,11 @@ const PhotoShema = new Schema ({
   }
 });
 
-const WidthSchema = new Schema ({
-  characteristicsId: {
-    type: Number,
+const CharacteristicSchema = new Schema ({
+  name: {
+    type: String,
     required: true
   },
-  value: {
-    type: Number,
-    required: true
-  }
-});
-
-const ComfortSchema = new Schema ({
-  characteristicsId: {
-    type: Number,
-    required: true
-  },
-  value: {
-    type: Number,
-    required: true
-  }
-});
-
-const SizeSchema = new Schema ({
   characteristicsId: {
     type: Number,
     required: true
@@ -82,10 +64,7 @@ const ReviewSchema = new Schema({
     required: true
   },
   photos: [PhotoSchema],
-  characteristics: {
-    Size: {SizeSchema},
-    Width: {WidthSchema},
-    Comfort: {ComfortSchema}
+  characteristics: {CharacteristicSchema}
   }
 });
 
